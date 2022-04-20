@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignInActivity">
+    tools:context=".auth.SignInActivity">
 
     <TextView
         android:id="@+id/textview_sopt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:text="SOPT"
+        android:text="@string/sopt"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
-        android:text="아이디"
+        android:text="@string/id"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -35,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:hint="아이디를 입력해주세요."
+        android:hint="@string/id_hint"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textview_id" />
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:text="비밀번호"
+        android:text="@string/pw"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -58,7 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:hint="비밀번호를 입력해주세요"
+        android:hint="@string/pw_hint"
         android:inputType="textPassword"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="40dp"
-        android:text="LOGIN"
+        android:text="@string/login"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edittext_pw" />
@@ -82,6 +82,6 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/green"
-        android:text="회원가입"
+        android:text="@string/sign_up"
         app:layout_constraintTop_toBottomOf="@id/button_login" />
 </androidx.constraintlayout.widget.ConstraintLayout>
