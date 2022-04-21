@@ -6,10 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".home.ReposFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Repos"
-        android:textSize="100sp"/>
+   <androidx.recyclerview.widget.RecyclerView
+       android:id="@+id/fragment_repos_recyclerview"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

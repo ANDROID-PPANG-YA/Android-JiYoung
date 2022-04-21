@@ -8,6 +8,7 @@
     <string name="id_hint">아이디를 입력해주세요.</string>
     <string name="pw_hint">비밀번호를 입력해주세요.</string>
     <string name="name">이름:양지영</string>
+    <string name="user_name">양지영</string>
     <string name="age">나이:25</string>
     <string name="user_age">25</string>
     <string name="mbti">MBTI:INFJ</string>

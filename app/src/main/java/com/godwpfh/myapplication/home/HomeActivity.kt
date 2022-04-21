@@ -32,13 +32,13 @@ class HomeActivity : AppCompatActivity() {
 
         binding.buttonFollow.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
-            //Log.d(TAG,"HomeActivity - initTransactionEvent() called , follow로 바뀜 ")
+            Log.d(TAG,"HomeActivity - initTransactionEvent() called , follow로 바뀜 ")
             transaction.replace(R.id.fragment_home, followFragment)
             transaction.commit()
         }
         binding.buttonRepos.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
-            //Log.d(TAG,"HomeActivity - initTransactionEvent() called , repos로 바뀜 ")
+            Log.d(TAG,"HomeActivity - initTransactionEvent() called , repos로 바뀜 ")
             transaction.replace(R.id.fragment_home, reposFragment)
             transaction.commit()
         }
