@@ -12,6 +12,7 @@
         android:id="@+id/fragment_follow_recylcerview"
         android:layout_width="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_follow_list"
         android:layout_height="match_parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

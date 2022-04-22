@@ -5,29 +5,31 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.godwpfh.myapplication.databinding.ItemFollowListBinding
 
-class RecylcerViewAdapter : RecyclerView.Adapter<RecylcerViewAdapter.RecyclerViewHolder>() {
-    val userList = mutableListOf<FollowData>()
+class FollowAdapter : RecyclerView.Adapter<FollowAdapter.FollowViewHolder>() {
+    val followUserList = mutableListOf<FollowData>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder{
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FollowViewHolder{
          val binding=ItemFollowListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-         return RecyclerViewHolder(binding)
+         return FollowViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
-        holder.onBind(userList[position])
+    override fun onBindViewHolder(holder: FollowViewHolder, position: Int) {
+        holder.onBind(followUserList[position])
     }
 
     override fun getItemCount(): Int {
-        return userList.size
+        return followUserList.size
     }
 
-    class RecyclerViewHolder(
+    class FollowViewHolder(
         private val binding : ItemFollowListBinding
     ) : RecyclerView.ViewHolder(binding.root){
         fun onBind(data : FollowData){
+            binding.imageviewFollowUser.setImageResource(data.follow_image)
             binding.textviewFollowName.text=data.follow_name
             binding.textviewFollowDes.text=data.follow_des
         }
+
     }
 
 }
