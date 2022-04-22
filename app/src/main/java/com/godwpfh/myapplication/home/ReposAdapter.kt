@@ -3,7 +3,6 @@ package com.godwpfh.myapplication.home
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.godwpfh.myapplication.databinding.ItemFollowListBinding
 import com.godwpfh.myapplication.databinding.ItemReposListBinding
 
 class ReposAdapter: RecyclerView.Adapter<ReposAdapter.ReposViewHolder>() {

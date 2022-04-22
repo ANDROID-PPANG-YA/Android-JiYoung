@@ -17,6 +17,8 @@ class HomeActivity : AppCompatActivity() {
         binding= ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        Log.d(TAG,"HomeActivity - onCreate() called")
+        
         initTransactionEvent()
 
     }
@@ -26,17 +28,16 @@ class HomeActivity : AppCompatActivity() {
          val followFragment = FollowFragment()
         val reposFragment = ReposFragment()
 
-        supportFragmentManager.beginTransaction().add(R.id.fragment_home, reposFragment).commit()
+        supportFragmentManager.beginTransaction().add(R.id.fragment_home, followFragment).commit()
 
         binding.buttonFollow.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fragment_home, followFragment).commit()
-            Log.d(TAG,"HomeActivity - initTransactionEvent() called follow")
+          
         }
         binding.buttonRepos.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fragment_home, reposFragment).commit()
-            Log.d(TAG,"HomeActivity - initTransactionEvent() called repos")
         }
 
     }
