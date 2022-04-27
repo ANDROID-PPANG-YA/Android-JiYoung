@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.godwpfh.myapplication.databinding.FragmentReposBinding
+import com.godwpfh.myapplication.home.adapter.ReposAdapter
+import com.godwpfh.myapplication.home.data.ReposData
 
 class ReposFragment : Fragment() {
     private var  _binding : FragmentReposBinding?= null

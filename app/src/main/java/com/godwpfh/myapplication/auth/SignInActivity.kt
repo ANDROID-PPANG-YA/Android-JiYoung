@@ -18,6 +18,31 @@ class SignInActivity : AppCompatActivity() {
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        signUpClicked()
+        logInClicked()
+        setInfo()
+
+    }
+
+    private fun signUpClicked(){
+        binding.buttonSignup.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            activityResultLauncher.launch(intent)
+        }
+    }
+
+    private fun logInClicked(){
+
+        binding.buttonLogin.setOnClickListener {
+            if (binding.edittextId.text.isEmpty() || binding.edittextPw.text.isEmpty()) {
+                Toast.makeText(this, "아이디/비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
+    }
+
+    private fun setInfo(){
         activityResultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { it ->
 
@@ -29,17 +54,5 @@ class SignInActivity : AppCompatActivity() {
                     binding.edittextPw.setText(signup_pw)
                 }
             }
-
-        binding.buttonSignup.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
-            activityResultLauncher.launch(intent)
-        }
-        binding.buttonLogin.setOnClickListener {
-            if (binding.edittextId.text.isEmpty() || binding.edittextPw.text.isEmpty()) {
-                Toast.makeText(this, "아이디/비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            startActivity(Intent(this, HomeActivity::class.java))
-        }
     }
 }

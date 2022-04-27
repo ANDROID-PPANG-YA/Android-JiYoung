@@ -1,14 +1,15 @@
-package com.godwpfh.myapplication.home
+package com.godwpfh.myapplication.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.godwpfh.myapplication.databinding.ItemFollowListBinding
+import com.godwpfh.myapplication.home.data.FollowData
 
 class FollowAdapter : RecyclerView.Adapter<FollowAdapter.FollowViewHolder>() {
     val followUserList = mutableListOf<FollowData>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FollowViewHolder{
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FollowViewHolder {
          val binding=ItemFollowListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
          return FollowViewHolder(binding)
     }
@@ -17,9 +18,7 @@ class FollowAdapter : RecyclerView.Adapter<FollowAdapter.FollowViewHolder>() {
         holder.onBind(followUserList[position])
     }
 
-    override fun getItemCount(): Int {
-        return followUserList.size
-    }
+    override fun getItemCount(): Int = followUserList.size
 
     class FollowViewHolder(
         private val binding : ItemFollowListBinding

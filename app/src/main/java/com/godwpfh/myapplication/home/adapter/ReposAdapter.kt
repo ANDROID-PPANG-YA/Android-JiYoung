@@ -1,9 +1,10 @@
-package com.godwpfh.myapplication.home
+package com.godwpfh.myapplication.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.godwpfh.myapplication.databinding.ItemReposListBinding
+import com.godwpfh.myapplication.home.data.ReposData
 
 class ReposAdapter: RecyclerView.Adapter<ReposAdapter.ReposViewHolder>() {
     val reposList = mutableListOf<ReposData>()
@@ -17,10 +18,7 @@ class ReposAdapter: RecyclerView.Adapter<ReposAdapter.ReposViewHolder>() {
         holder.onBind(reposList[position])
     }
 
-    override fun getItemCount(): Int {
-        return reposList.size
-    }
-
+    override fun getItemCount(): Int = reposList.size
 
     class ReposViewHolder(
         private val binding : ItemReposListBinding
