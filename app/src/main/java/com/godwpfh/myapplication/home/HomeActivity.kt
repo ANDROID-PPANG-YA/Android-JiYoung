@@ -70,7 +70,7 @@ class HomeActivity : AppCompatActivity() {
         }
     }
     private fun initAdapter(){
-            val fragmentList = listOf(ProfileFragment(), HomeFragment())
+            val fragmentList = listOf(ProfileFragment(), HomeFragment(), CameraFragment())
             homeViewPagerAdpater= HomeViewPagerAdpater(this)
             homeViewPagerAdpater.setFragments(fragmentList)
             binding.viewPagerHome.adapter=homeViewPagerAdpater
