@@ -14,11 +14,18 @@ class ProfileFragment : Fragment() {
     private var _binding : FragmentProfileBinding?=null
     private val binding  get() = _binding!!
 
+    private  val followFragment = FollowFragment()
+    private val reposFragment = ReposFragment()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding=FragmentProfileBinding.inflate(layoutInflater, container, false)
+
+        initFirstView()
+        initFollowButton()
+        initReposButton()
 
         return binding.root
     }
@@ -27,4 +34,26 @@ class ProfileFragment : Fragment() {
         _binding=null
     }
 
+    private fun initFollowButton(){
+        binding.homeFollowBtn.setOnClickListener {
+            childFragmentManager.beginTransaction()
+                .replace(R.id.profile_fragmentview, followFragment)
+                .commit()
+        }
+    }
+
+    private fun initReposButton(){
+        binding.homeReposBtn.setOnClickListener {
+            childFragmentManager.beginTransaction()
+                .replace(R.id.profile_fragmentview, reposFragment)
+                .commit()
+        }
+    }
+
+    private fun initFirstView(){
+        //처음에 보여질 때 뜨게
+        childFragmentManager.beginTransaction()
+            .add(R.id.profile_fragmentview, followFragment)
+            .commit()
+    }
 }
