@@ -23,7 +23,7 @@ class ProfileFragment : Fragment() {
     ): View? {
         _binding=FragmentProfileBinding.inflate(layoutInflater, container, false)
 
-        initFirstView()
+        initTransaction()
         initFollowButton()
         initReposButton()
 
@@ -50,7 +50,7 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun initFirstView(){
+    private fun initTransaction(){
         //처음에 보여질 때 뜨게
         childFragmentManager.beginTransaction()
             .add(R.id.profile_fragmentview, followFragment)

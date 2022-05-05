@@ -8,12 +8,10 @@
     tools:context=".home.HomeActivity">
 
 
-
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager_home"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:fontFamily="@font/noto_sans_regular"
         app:layout_constraintBottom_toTopOf="@id/bottomNav_home"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,7 +23,6 @@
         app:itemIconTint="@color/bottomnav_custom"
         app:itemTextColor="@color/bottomnav_custom"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bottom_navigation"
-        />
+        app:menu="@menu/menu_bottom_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
