@@ -41,7 +41,7 @@
         android:layout_marginHorizontal="20dp"
         android:background="@drawable/shape_custom_state"
         android:hint="@string/name_hint"
-        android:inputType="textPassword"
+        android:inputType="text"
         app:layout_constraintTop_toBottomOf="@id/textview_name" />
 
     <TextView
@@ -65,7 +65,7 @@
         android:layout_marginHorizontal="20dp"
         android:background="@drawable/shape_custom_state"
         android:hint="@string/id_hint"
-        android:inputType="textPassword"
+        android:inputType="text"
         app:layout_constraintTop_toBottomOf="@id/textview_signup_id" />
 
     <TextView

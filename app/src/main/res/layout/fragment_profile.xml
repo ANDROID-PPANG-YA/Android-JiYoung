@@ -42,8 +42,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@drawable/button_custom_state"
+        app:backgroundTint="@null"
         android:fontFamily="@font/noto_sans_regular"
         android:text="@string/list_follow"
+        android:textColor="@drawable/text_custom_state"
         app:layout_constraintEnd_toStartOf="@id/home_repos_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textview_profile_user_name" />
@@ -54,8 +56,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@drawable/button_custom_state"
+        app:backgroundTint="@null"
         android:fontFamily="@font/noto_sans_regular"
         android:text="@string/list_repos"
+        android:textColor="@drawable/text_custom_state"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/home_follow_btn"
         app:layout_constraintTop_toBottomOf="@id/textview_profile_user_name" />
