@@ -2,11 +2,13 @@ package com.godwpfh.myapplication.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.godwpfh.myapplication.databinding.ItemReposListBinding
-import com.godwpfh.myapplication.home.data.ReposData
+import com.godwpfh.myapplication.data.ReposData
+import com.godwpfh.myapplication.util.ReposDiffCallback
 
-class ReposAdapter: RecyclerView.Adapter<ReposAdapter.ReposViewHolder>() {
+class ReposAdapter: ListAdapter<ReposData, ReposAdapter.ReposViewHolder>(ReposDiffCallback) {
     val reposList = mutableListOf<ReposData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReposViewHolder {
