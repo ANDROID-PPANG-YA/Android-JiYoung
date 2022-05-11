@@ -1,4 +1,4 @@
-package com.godwpfh.myapplication.home
+package com.godwpfh.myapplication.ui.home
 
 import android.content.Intent
 import android.os.Bundle

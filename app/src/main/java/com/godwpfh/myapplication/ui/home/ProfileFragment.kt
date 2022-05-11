@@ -1,10 +1,12 @@
-package com.godwpfh.myapplication.home
+package com.godwpfh.myapplication.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.godwpfh.myapplication.R
 import com.godwpfh.myapplication.databinding.FragmentProfileBinding
 
@@ -16,11 +18,16 @@ class ProfileFragment : Fragment() {
     private val followFragment = FollowFragment()
     private val reposFragment = ReposFragment()
 
+    private lateinit var viewModel : HomeViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentProfileBinding.inflate(layoutInflater, container, false)
+        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
+        viewModel= ViewModelProvider(this).get(HomeViewModel::class.java)
+        binding.viewModel=viewModel
+        binding.lifecycleOwner=viewLifecycleOwner
 
         initTransaction()
 

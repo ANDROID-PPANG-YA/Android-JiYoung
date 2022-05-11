@@ -1,4 +1,4 @@
-package com.godwpfh.myapplication
+package com.godwpfh.myapplication.data.remote
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

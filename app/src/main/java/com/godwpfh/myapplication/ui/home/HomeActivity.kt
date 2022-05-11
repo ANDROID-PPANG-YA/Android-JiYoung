@@ -1,23 +1,30 @@
-package com.godwpfh.myapplication.home
+package com.godwpfh.myapplication.ui.home
 
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.viewpager2.widget.ViewPager2
 import com.godwpfh.myapplication.R
 import com.godwpfh.myapplication.databinding.ActivityHomeBinding
-import com.godwpfh.myapplication.home.adapter.ProfileViewPagerAdpater
+import com.godwpfh.myapplication.adapter.ProfileViewPagerAdpater
 
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding : ActivityHomeBinding
     private lateinit var homeViewPagerAdpater: ProfileViewPagerAdpater
+
+    private lateinit var viewModel : HomeViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding= ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        binding= DataBindingUtil.setContentView(this, R.layout.activity_home)
+//        viewModel=ViewModelProvider(this).get(HomeViewModel::class.java)
+//        binding.viewModel=viewModel
+//        binding.lifecycleOwner=this
+
 
         Log.d(TAG,"HomeActivity - onCreate() called")
 

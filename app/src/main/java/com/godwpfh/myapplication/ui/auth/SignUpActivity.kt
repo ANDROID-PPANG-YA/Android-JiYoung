@@ -1,4 +1,4 @@
-package com.godwpfh.myapplication.auth
+package com.godwpfh.myapplication.ui.auth
 
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.godwpfh.myapplication.RequestSignUp
-import com.godwpfh.myapplication.ResponseSignUp
-import com.godwpfh.myapplication.ServiceCreator
+import com.godwpfh.myapplication.data.remote.request.RequestSignUp
+import com.godwpfh.myapplication.data.remote.response.ResponseSignUp
+import com.godwpfh.myapplication.data.remote.ServiceCreator
 import com.godwpfh.myapplication.databinding.ActivitySignUpBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -50,7 +50,7 @@ class SignUpActivity : AppCompatActivity() {
                 response: Response<ResponseSignUp>
             ) {
                 if(response.isSuccessful){
-                    val data=response.body()?.data
+                    //val data=response.body()?.data
                     Log.d(TAG,"SignUpActivity, response.body: ${response.body()}")
                     Toast.makeText(this@SignUpActivity, "회원가입에 성공하였습니다.", Toast.LENGTH_SHORT).show()
                     moveToSignIn()

@@ -1,4 +1,4 @@
-package com.godwpfh.myapplication.home.adapter
+package com.godwpfh.myapplication.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

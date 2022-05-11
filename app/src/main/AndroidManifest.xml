@@ -12,15 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".home.HomeActivity" />
-        <activity android:name=".auth.SignInActivity">
+        <activity android:name="com.godwpfh.myapplication.ui.home.HomeActivity" />
+        <activity android:name="com.godwpfh.myapplication.ui.auth.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".auth.SignUpActivity" />
+        <activity android:name="com.godwpfh.myapplication.ui.auth.SignUpActivity" />
     </application>
 
 </manifest>

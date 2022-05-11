@@ -1,4 +1,4 @@
-package com.godwpfh.myapplication.auth
+package com.godwpfh.myapplication.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,11 +7,11 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import com.godwpfh.myapplication.RequestSignIn
-import com.godwpfh.myapplication.ResponseSignIn
-import com.godwpfh.myapplication.ServiceCreator
+import com.godwpfh.myapplication.data.remote.request.RequestSignIn
+import com.godwpfh.myapplication.data.remote.response.ResponseSignIn
+import com.godwpfh.myapplication.data.remote.ServiceCreator
 import com.godwpfh.myapplication.databinding.ActivitySignInBinding
-import com.godwpfh.myapplication.home.HomeActivity
+import com.godwpfh.myapplication.ui.home.HomeActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -56,11 +56,11 @@ class SignInActivity : AppCompatActivity() {
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { it ->
 
                 val intent: Intent? = it.data
-                val signup_id = intent?.getStringExtra("id").toString()
-                val signup_pw = intent?.getStringExtra("pw").toString()
+                val signUpId = intent?.getStringExtra("id").toString()
+                val signUpPw = intent?.getStringExtra("pw").toString()
                 if (it.resultCode == RESULT_OK) {
-                    binding.edittextId.setText(signup_id)
-                    binding.edittextPw.setText(signup_pw)
+                    binding.edittextId.setText(signUpId)
+                    binding.edittextPw.setText(signUpPw)
                 }
             }
     }

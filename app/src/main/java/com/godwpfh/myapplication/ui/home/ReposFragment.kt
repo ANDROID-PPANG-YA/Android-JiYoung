@@ -1,4 +1,4 @@
-package com.godwpfh.myapplication.home
+package com.godwpfh.myapplication.ui.home
 
 import android.content.ContentValues.TAG
 import android.os.Bundle
@@ -8,9 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.godwpfh.myapplication.databinding.FragmentReposBinding
-import com.godwpfh.myapplication.home.adapter.ReposAdapter
+import com.godwpfh.myapplication.adapter.ReposAdapter
 import com.godwpfh.myapplication.data.ReposData
-import java.util.Observer
 
 class ReposFragment : Fragment() {
     private var  _binding : FragmentReposBinding?= null

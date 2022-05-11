@@ -1,4 +1,4 @@
-package com.godwpfh.myapplication
+package com.godwpfh.myapplication.data.remote.request
 
 import com.google.gson.annotations.SerializedName
 

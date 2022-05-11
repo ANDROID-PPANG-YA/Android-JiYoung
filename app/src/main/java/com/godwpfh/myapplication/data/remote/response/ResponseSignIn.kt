@@ -1,4 +1,4 @@
-package com.godwpfh.myapplication
+package com.godwpfh.myapplication.data.remote.response
 
 data class ResponseSignIn(
     val status: Int,

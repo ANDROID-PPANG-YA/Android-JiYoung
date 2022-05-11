@@ -1,15 +1,12 @@
-package com.godwpfh.myapplication.home
+package com.godwpfh.myapplication.ui.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentTransaction
-import com.godwpfh.myapplication.R
-import com.godwpfh.myapplication.databinding.FragmentFollowBinding
 import com.godwpfh.myapplication.databinding.FragmentHomeBinding
-import com.godwpfh.myapplication.home.adapter.TabProfileAdpater
+import com.godwpfh.myapplication.adapter.TabProfileAdpater
 import com.google.android.material.tabs.TabLayoutMediator
 
 class HomeFragment : Fragment() {
