@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.godwpfh.myapplication.R
 import com.godwpfh.myapplication.databinding.FragmentProfileBinding
+import com.godwpfh.myapplication.databinding.FragmentReposBinding
 
 
 class ProfileFragment : Fragment() {
@@ -24,11 +25,11 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
-        viewModel= ViewModelProvider(this).get(HomeViewModel::class.java)
-        binding.viewModel=viewModel
-        binding.lifecycleOwner=viewLifecycleOwner
-
+//        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
+//        viewModel= ViewModelProvider(this).get(HomeViewModel::class.java)
+//        binding.viewModel=viewModel
+//        binding.lifecycleOwner=viewLifecycleOwner
+        _binding= FragmentProfileBinding.inflate(layoutInflater, container, false)
         initTransaction()
 
 

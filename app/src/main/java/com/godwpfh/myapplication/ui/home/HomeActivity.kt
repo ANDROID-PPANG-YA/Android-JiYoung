@@ -15,16 +15,13 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var binding : ActivityHomeBinding
     private lateinit var homeViewPagerAdpater: ProfileViewPagerAdpater
 
-    private lateinit var viewModel : HomeViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding= DataBindingUtil.setContentView(this, R.layout.activity_home)
-//        viewModel=ViewModelProvider(this).get(HomeViewModel::class.java)
-//        binding.viewModel=viewModel
-//        binding.lifecycleOwner=this
-
+        binding= ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         Log.d(TAG,"HomeActivity - onCreate() called")
 

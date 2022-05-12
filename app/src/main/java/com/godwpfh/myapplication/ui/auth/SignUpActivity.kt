@@ -55,7 +55,11 @@ class SignUpActivity : AppCompatActivity() {
                     Toast.makeText(this@SignUpActivity, "회원가입에 성공하였습니다.", Toast.LENGTH_SHORT).show()
                     moveToSignIn()
                     //다음 페이지로 이동
+                }else if(response.code()==409){
+                    //중복된 경우
+                    Toast.makeText(this@SignUpActivity, "이미 존재하는 아이디입니다.", Toast.LENGTH_SHORT).show()
                 }else
+
                     Toast.makeText(this@SignUpActivity, "회원가입에 실패하였습니다.",Toast.LENGTH_SHORT).show()
             }
 
