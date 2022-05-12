@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home.ProfileFragment">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageview_profile"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/home_image"
+        app:civ_border_color="@color/sopt_main_purple"
+        app:civ_border_width="1dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textview_profile_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/noto_sans_regular"
+        android:text="@string/user_name"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageview_profile" />
+
+
+    <Button
+        android:id="@+id/home_follow_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/button_custom_state"
+        app:backgroundTint="@null"
+        android:fontFamily="@font/noto_sans_regular"
+        android:text="@string/list_follow"
+        android:textColor="@drawable/text_custom_state"
+        app:layout_constraintEnd_toStartOf="@id/home_repos_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_profile_user_name" />
+
+    <Button
+        android:id="@+id/home_repos_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/button_custom_state"
+        app:backgroundTint="@null"
+        android:fontFamily="@font/noto_sans_regular"
+        android:text="@string/list_repos"
+        android:textColor="@drawable/text_custom_state"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/home_follow_btn"
+        app:layout_constraintTop_toBottomOf="@id/textview_profile_user_name" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/profile_fragmentview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_repos_btn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,12 +2,14 @@
     <string name="app_name">My Application</string>
     <string name="sopt">SOPT</string>
     <string name="sign_up">회원가입</string>
-    <string name="login">LOGIN</string>
-    <string name="id">아이디</string>
+    <string name="finish_sign_up">회원가입 완료</string>
+    <string name="login">로그인</string>
+    <string name="id">깃허브 아이디</string>
     <string name="pw">비밀번호</string>
-    <string name="id_hint">아이디를 입력해주세요.</string>
+    <string name="name_hint">이름을 입력해주세요.</string>
+    <string name="id_hint">깃허브 아이디를 입력해주세요.</string>
     <string name="pw_hint">비밀번호를 입력해주세요.</string>
-    <string name="name">이름:양지영</string>
+    <string name="name">이름</string>
     <string name="user_name">양지영</string>
     <string name="age">나이:25</string>
     <string name="user_age">25</string>
@@ -17,4 +19,15 @@
     <string name="user_intro">안녕하세요  양지영입니다.  저는 25살입니다.  위의 사진은 제 깃허브 사진입니다. 현재 숭실대학교 컴퓨터학부 4학년을 보내고 있습니다.</string>
     <string name="list_follow">팔로워 목록</string>
     <string name="list_repos">레포지토리 목록</string>
+    <string name="profile">프로필</string>
+    <string name="home">홈</string>
+    <string name="camera">카메라</string>
+    <string name="github">깃허브</string>
+    <string name="following">팔로잉</string>
+    <string name="follower">팔로워</string>
+    <string name="add_photo_message">사진을 첨부해주세요.</string>
+    <string name="add_photo">첨부하기</string>
+    <string name="not_ready_message">준비중입니다.</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

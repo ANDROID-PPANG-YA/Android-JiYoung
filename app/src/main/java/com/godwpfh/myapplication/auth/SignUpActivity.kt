@@ -14,6 +14,10 @@ class SignUpActivity : AppCompatActivity() {
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        finishClicked()
+    }
+
+    private fun finishClicked(){
         binding.buttonFinishSignup.setOnClickListener {
             if (binding.edittextName.text.isEmpty() || binding.edittextSignupId.text.isEmpty() || binding.edittextSignupPw.text.isEmpty()) {
                 Toast.makeText(this, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
