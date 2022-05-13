@@ -2,10 +2,10 @@ package com.godwpfh.myapplication.data.remote
 
 import com.godwpfh.myapplication.data.remote.request.RequestSignIn
 import com.godwpfh.myapplication.data.remote.request.RequestSignUp
-import com.godwpfh.myapplication.data.remote.response.ResponseSignIn
-import com.godwpfh.myapplication.data.remote.response.ResponseSignUp
+import com.godwpfh.myapplication.data.remote.response.*
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface SoptService {
@@ -18,4 +18,5 @@ interface SoptService {
     fun postSignup(
         @Body body: RequestSignUp
     ): Call<ResponseSignUp>
+
 }

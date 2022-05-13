@@ -25,11 +25,9 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
-//        viewModel= ViewModelProvider(this).get(HomeViewModel::class.java)
-//        binding.viewModel=viewModel
-//        binding.lifecycleOwner=viewLifecycleOwner
+
         _binding= FragmentProfileBinding.inflate(layoutInflater, container, false)
+
         initTransaction()
 
 
@@ -57,16 +55,15 @@ class ProfileFragment : Fragment() {
                 .replace(R.id.profile_fragmentview, followFragment)
                 .commit()
 
-            binding.homeFollowBtn.isSelected = true
-            binding.homeReposBtn.isSelected = false
+            binding.homeFollowBtn.isSelected=!binding.homeReposBtn.isSelected
         }
 
         binding.homeReposBtn.setOnClickListener {
             childFragmentManager.beginTransaction()
                 .replace(R.id.profile_fragmentview, reposFragment)
                 .commit()
-            binding.homeReposBtn.isSelected = true
-            binding.homeFollowBtn.isSelected = false
+            binding.homeReposBtn.isSelected=!binding.homeFollowBtn.isSelected
         }
     }
+
 }

@@ -30,7 +30,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/noto_sans_regular"
-        android:text="@{viewModel.name}"
+        android:text="양지영"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
