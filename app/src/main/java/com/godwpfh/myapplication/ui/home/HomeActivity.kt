@@ -15,11 +15,16 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var homeViewPagerAdpater: ProfileViewPagerAdpater
 
 
+    private lateinit var email : String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding= ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        email= intent.getStringExtra("username").toString()
+        Log.d(TAG,"HomeActivity - onCreate() called email: $email")
 
         Log.d(TAG,"HomeActivity - onCreate() called")
 
@@ -57,7 +62,7 @@ class HomeActivity : AppCompatActivity() {
             binding.viewPagerHome.adapter=homeViewPagerAdpater
     }
 
-
+    fun getUserEmail() : String = email
 
     companion object{
         const val PROFILE_FRAGMENT=0

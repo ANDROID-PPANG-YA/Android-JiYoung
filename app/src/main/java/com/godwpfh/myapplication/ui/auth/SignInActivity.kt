@@ -1,5 +1,6 @@
 package com.godwpfh.myapplication.ui.auth
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -85,7 +86,10 @@ class SignInActivity : AppCompatActivity() {
                         "${data?.email}님 반갑습니다.",
                         Toast.LENGTH_SHORT
                     ).show()
-                    startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
+                    val intent= Intent(this@SignInActivity, HomeActivity::class.java)
+                    intent.putExtra("username",data!!.email)
+                    Log.d(TAG,"SignInActivity - onResponse() called username: ${data!!.email}")
+                    startActivity(intent)
 
                 }else if(response.code()==404){
                     Toast.makeText(this@SignInActivity, "존재하지 않는 이메일입니다.",Toast.LENGTH_SHORT).show()

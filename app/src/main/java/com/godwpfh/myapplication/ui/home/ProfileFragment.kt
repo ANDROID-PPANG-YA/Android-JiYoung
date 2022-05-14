@@ -1,15 +1,25 @@
 package com.godwpfh.myapplication.ui.home
 
+import android.content.ContentValues.TAG
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.godwpfh.myapplication.R
+import com.godwpfh.myapplication.data.remote.GithubClient
+import com.godwpfh.myapplication.data.remote.response.ResponseGetUser
+import com.godwpfh.myapplication.data.remote.response.ResponseSignIn
 import com.godwpfh.myapplication.databinding.FragmentProfileBinding
 import com.godwpfh.myapplication.databinding.FragmentReposBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class ProfileFragment : Fragment() {
@@ -19,8 +29,14 @@ class ProfileFragment : Fragment() {
     private val followFragment = FollowFragment()
     private val reposFragment = ReposFragment()
 
-    private lateinit var viewModel : HomeViewModel
+    private lateinit var email : String
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        email= (activity as HomeActivity).getUserEmail()
+        Log.d(TAG,"ProfileFragment - onAttach() called email: $email")
+        initProfile(email)
 
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -66,4 +82,27 @@ class ProfileFragment : Fragment() {
         }
     }
 
-}
+    private fun initProfile(email_ : String){
+        val call : Call<ResponseGetUser> = GithubClient.githubService.getUserInfo(email_)
+        call.enqueue(object : Callback<ResponseGetUser> {
+            override fun onResponse(
+                call: Call<ResponseGetUser>,
+                response: Response<ResponseGetUser>
+            ) {
+                if(response.isSuccessful){
+                    val data = response.body()?.data
+                    binding.textviewProfileUserId.text=data?.login
+                    binding.textviewProfileUserName.text=data?.name
+                    Glide.with(this@ProfileFragment)
+                        .load(data?.avatar_url)
+                        .into(binding.imageviewProfile)
+            }
+            }
+
+            override fun onFailure(call: Call<ResponseGetUser>, t: Throwable) {
+
+            }
+        })
+        }
+    }
+
