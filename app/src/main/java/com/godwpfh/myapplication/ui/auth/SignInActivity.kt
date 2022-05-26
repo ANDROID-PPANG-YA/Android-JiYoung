@@ -8,9 +8,9 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.godwpfh.myapplication.data.remote.ServiceCreator
 import com.godwpfh.myapplication.data.remote.request.RequestSignIn
 import com.godwpfh.myapplication.data.remote.response.ResponseSignIn
-import com.godwpfh.myapplication.data.remote.ServiceCreator
 import com.godwpfh.myapplication.databinding.ActivitySignInBinding
 import com.godwpfh.myapplication.ui.home.HomeActivity
 import retrofit2.Call
@@ -78,7 +78,7 @@ class SignInActivity : AppCompatActivity() {
                 call: Call<ResponseSignIn>,
                 response: Response<ResponseSignIn>
             ) {
-                if(response.isSuccessful) {
+                if (response.isSuccessful) {
                     val data = response.body()?.data
 
                     Toast.makeText(
@@ -86,17 +86,17 @@ class SignInActivity : AppCompatActivity() {
                         "${data?.email}님 반갑습니다.",
                         Toast.LENGTH_SHORT
                     ).show()
-                    val intent= Intent(this@SignInActivity, HomeActivity::class.java)
-                    intent.putExtra("username",data!!.email)
-                    Log.d(TAG,"SignInActivity - onResponse() called username: ${data!!.email}")
+                    val intent = Intent(this@SignInActivity, HomeActivity::class.java)
+                    intent.putExtra("username", data!!.email)
+                    Log.d(TAG, "SignInActivity - onResponse() called username: ${data!!.email}")
                     startActivity(intent)
 
-                }else if(response.code()==404){
-                    Toast.makeText(this@SignInActivity, "존재하지 않는 이메일입니다.",Toast.LENGTH_SHORT).show()
-                }else if(response.code()==409){
+                } else if (response.code() == 404) {
+                    Toast.makeText(this@SignInActivity, "존재하지 않는 이메일입니다.", Toast.LENGTH_SHORT)
+                        .show()
+                } else if (response.code() == 409) {
                     Toast.makeText(this@SignInActivity, "잘못돤 비밀번호입니다.", Toast.LENGTH_SHORT).show()
-                }
-                else
+                } else
                     Toast.makeText(this@SignInActivity, "로그인에 실패하였습니다.", Toast.LENGTH_SHORT).show()
             }
 

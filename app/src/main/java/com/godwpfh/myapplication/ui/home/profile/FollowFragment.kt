@@ -1,4 +1,4 @@
-package com.godwpfh.myapplication.ui.home
+package com.godwpfh.myapplication.ui.home.profile
 
 import android.content.ContentValues.TAG
 import android.os.Bundle

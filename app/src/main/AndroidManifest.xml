@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity android:name="com.godwpfh.myapplication.ui.home.HomeActivity" />
-        <activity android:name="com.godwpfh.myapplication.ui.auth.SignInActivity">
+        <activity android:name="com.godwpfh.myapplication.ui.auth.SignInActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package com.godwpfh.myapplication.ui.home
+package com.godwpfh.myapplication.ui.home.profile
 
 import android.content.ContentValues.TAG
 import android.content.Context
@@ -7,19 +7,18 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.godwpfh.myapplication.R
 import com.godwpfh.myapplication.data.remote.GithubClient
 import com.godwpfh.myapplication.data.remote.response.ResponseGetUser
-import com.godwpfh.myapplication.data.remote.response.ResponseSignIn
+import com.godwpfh.myapplication.data.remote.response.ResponseRepos
 import com.godwpfh.myapplication.databinding.FragmentProfileBinding
-import com.godwpfh.myapplication.databinding.FragmentReposBinding
+import com.godwpfh.myapplication.ui.home.HomeActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Exception
 
 
 class ProfileFragment : Fragment() {
@@ -29,14 +28,6 @@ class ProfileFragment : Fragment() {
     private val followFragment = FollowFragment()
     private val reposFragment = ReposFragment()
 
-    private lateinit var email : String
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        email= (activity as HomeActivity).getUserEmail()
-        Log.d(TAG,"ProfileFragment - onAttach() called email: $email")
-        initProfile(email)
-
-    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,8 +35,8 @@ class ProfileFragment : Fragment() {
 
         _binding= FragmentProfileBinding.inflate(layoutInflater, container, false)
 
+        initProfile()
         initTransaction()
-
 
         return binding.root
     }
@@ -71,36 +62,40 @@ class ProfileFragment : Fragment() {
                 .replace(R.id.profile_fragmentview, followFragment)
                 .commit()
 
-            binding.homeFollowBtn.isSelected=!binding.homeReposBtn.isSelected
+            binding.homeFollowBtn.isSelected=true
+            binding.homeReposBtn.isSelected=false
         }
 
         binding.homeReposBtn.setOnClickListener {
             childFragmentManager.beginTransaction()
                 .replace(R.id.profile_fragmentview, reposFragment)
                 .commit()
-            binding.homeReposBtn.isSelected=!binding.homeFollowBtn.isSelected
+            binding.homeReposBtn.isSelected=true
+            binding.homeFollowBtn.isSelected=false
         }
     }
 
-    private fun initProfile(email_ : String){
-        val call : Call<ResponseGetUser> = GithubClient.githubService.getUserInfo(email_)
+    private fun initProfile(){
+        val call : Call<ResponseGetUser> = GithubClient.githubService.getUserInfo("wlwpfh")
         call.enqueue(object : Callback<ResponseGetUser> {
             override fun onResponse(
                 call: Call<ResponseGetUser>,
                 response: Response<ResponseGetUser>
             ) {
                 if(response.isSuccessful){
-                    val data = response.body()?.data
+                    val data = response.body()
                     binding.textviewProfileUserId.text=data?.login
                     binding.textviewProfileUserName.text=data?.name
                     Glide.with(this@ProfileFragment)
                         .load(data?.avatar_url)
                         .into(binding.imageviewProfile)
-            }
+            }else{
+                    Log.d(TAG,"ProfileFragment - onResponse(), reponse not successful")
+                }
             }
 
             override fun onFailure(call: Call<ResponseGetUser>, t: Throwable) {
-
+                Log.d("NetworkTest", "ProfileFragment - onFailure() called, error:$t ")
             }
         })
         }

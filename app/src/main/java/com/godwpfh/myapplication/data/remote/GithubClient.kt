@@ -4,10 +4,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object GithubClient {
-    private const val BASE_URL = "https://api.github.com"
+    private const val BASE_URL = "https://api.github.com/"
 
     private val retrofit : Retrofit = Retrofit.Builder()
-        .baseUrl(GithubClient.BASE_URL)
+        .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
