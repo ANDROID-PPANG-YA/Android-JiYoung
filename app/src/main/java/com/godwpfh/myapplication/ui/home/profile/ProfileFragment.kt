@@ -31,7 +31,7 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding= FragmentProfileBinding.inflate(layoutInflater, container, false)
 
@@ -53,8 +53,7 @@ class ProfileFragment : Fragment() {
             .add(R.id.profile_fragmentview, followFragment)
             .commit()
 
-        binding.homeFollowBtn.isSelected = true
-        binding.homeReposBtn.isSelected = false
+
 
 
         binding.homeFollowBtn.setOnClickListener {

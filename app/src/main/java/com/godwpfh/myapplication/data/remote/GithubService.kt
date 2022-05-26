@@ -10,8 +10,8 @@ interface GithubService {
     @GET("users/{username}")
     fun getUserInfo(@Path("username")username: String) : Call<ResponseGetUser>
 
-    @GET("users/{username}}/repos")
-    fun getRepos(@Path("username")username: String): Call<MutableList<ResponseRepos>>
+    @GET("users/{username}/repos")
+    fun getRepos(@Path("username")username: String): Call<List<ResponseRepos>>
 
 //    @GET("users/wlwpfh/following")
 

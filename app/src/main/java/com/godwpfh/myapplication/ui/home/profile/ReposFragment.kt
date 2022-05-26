@@ -7,9 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.godwpfh.myapplication.adapter.ReposAdapter
 import com.godwpfh.myapplication.data.ReposData
+import com.godwpfh.myapplication.data.remote.GithubClient
+import com.godwpfh.myapplication.data.remote.response.ResponseGetUser
+import com.godwpfh.myapplication.data.remote.response.ResponseRepos
 import com.godwpfh.myapplication.databinding.FragmentReposBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ReposFragment : Fragment() {
     private var _binding: FragmentReposBinding? = null
@@ -17,25 +24,8 @@ class ReposFragment : Fragment() {
 
     private lateinit var reposAdapter: ReposAdapter
 
-    val reposData = mutableListOf<ReposData>().apply {
-        add(ReposData("algorithm", "studying algorithm"))
-        add(ReposData("data-science-study", "study data science"))
-        add(ReposData("studyTight", "online study planner for students!"))
-        add(ReposData("instagram-clone", "instagram clone coding with Java, Kotlin, Firebase"))
-        add(ReposData("pla_bear", "플라스틱 쓰레기를 줄이는 환경보호 앱, PlaBear"))
-        add(ReposData("openCV_project", "동전 분류 인식 프로그램"))
-    }
+    private val reposData = mutableListOf<ReposData>()
 
-    //        listOf(
-//            ReposData("algorithm","studying algorithm"),
-//            ReposData("data-science-study","study data science"),
-//            ReposData("studyTight","online study planner for students!"),
-//            ReposData("instagram-clone","instagram clone coding with Java, Kotlin, Firebase"),
-//            ReposData("pla_bear","플라스틱 쓰레기를 줄이는 환경보호 앱, PlaBear"),
-//            ReposData("openCV_project","동전 분류 인식 프로그램")
-//
-//        )
-//    ) addAll은 boolean을 리턴해서 하나씩 add함 -
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,12 +35,37 @@ class ReposFragment : Fragment() {
         Log.d(TAG, "ReposFragment - onCreateView() called")
 
 
+        initRepos()
 
-        initReposAdapter()
 
         return binding.root
 
     }
+
+    private fun initRepos(){
+        Log.d(TAG,"ReposFragment - initRepos() called")
+        val call : Call<List<ResponseRepos>> = GithubClient.githubService.getRepos("wlwpfh")
+        call.enqueue(object : Callback<List<ResponseRepos>> {
+            override fun onResponse(
+                call: Call<List<ResponseRepos>>,
+                response: Response<List<ResponseRepos>>
+            ) {
+                if (response.isSuccessful) {
+                    val list = response.body()
+                    Log.d(TAG,"ReposFragment - onResponse() called list : $list")
+                    list!!.forEachIndexed { index, _ ->
+                        reposData.add(ReposData(list[index].name, list[index].description))
+                    }
+                    initReposAdapter()
+                }
+            }
+                override fun onFailure(call: Call<List<ResponseRepos>>, t: Throwable) {
+                    Log.d(TAG, "ReposFragment - onFailure() called t=$t")
+                }
+
+            })
+
+        }
 
     private fun initReposAdapter() {
         //recyclerview에 adapter연결
@@ -59,8 +74,8 @@ class ReposFragment : Fragment() {
         binding.fragmentReposRecyclerview.adapter = reposAdapter
 
         reposAdapter.reposList.addAll(reposData)
+
         reposAdapter.submitList(reposData)
-        //이게 맞나... 흠..
     }
 
 
