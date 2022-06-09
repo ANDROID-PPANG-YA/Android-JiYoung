@@ -29,5 +29,11 @@
     <string name="add_photo">첨부하기</string>
     <string name="not_ready_message">준비중입니다.</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="onboarding">온보딩</string>
+    <string name="welcomemessage_1">Github에 오신 걸 \n 환경합니다.</string>
+    <string name="welcomemessage_2">Github에서 좋은 시간 \n 보내시길 바랍니다.</string>
+    <string name="welcomemessage_3">Github를 시작해봅시다!</string>
+    <string name="tonext">다음으로</string>
+    <string name="tostart">시작하기</string>
 
 </resources>
