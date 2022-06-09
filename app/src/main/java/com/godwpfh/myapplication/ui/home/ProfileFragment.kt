@@ -1,12 +1,15 @@
-package com.godwpfh.myapplication.home
+package com.godwpfh.myapplication.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.godwpfh.myapplication.R
 import com.godwpfh.myapplication.databinding.FragmentProfileBinding
+import com.godwpfh.myapplication.databinding.FragmentReposBinding
 
 
 class ProfileFragment : Fragment() {
@@ -16,11 +19,14 @@ class ProfileFragment : Fragment() {
     private val followFragment = FollowFragment()
     private val reposFragment = ReposFragment()
 
+    private lateinit var viewModel : HomeViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentProfileBinding.inflate(layoutInflater, container, false)
+
+        _binding= FragmentProfileBinding.inflate(layoutInflater, container, false)
 
         initTransaction()
 
@@ -49,16 +55,15 @@ class ProfileFragment : Fragment() {
                 .replace(R.id.profile_fragmentview, followFragment)
                 .commit()
 
-            binding.homeFollowBtn.isSelected = true
-            binding.homeReposBtn.isSelected = false
+            binding.homeFollowBtn.isSelected=!binding.homeReposBtn.isSelected
         }
 
         binding.homeReposBtn.setOnClickListener {
             childFragmentManager.beginTransaction()
                 .replace(R.id.profile_fragmentview, reposFragment)
                 .commit()
-            binding.homeReposBtn.isSelected = true
-            binding.homeFollowBtn.isSelected = false
+            binding.homeReposBtn.isSelected=!binding.homeFollowBtn.isSelected
         }
     }
+
 }

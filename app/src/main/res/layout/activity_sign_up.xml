@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".auth.SignUpActivity">
+    tools:context=".ui.auth.SignUpActivity">
 
     <TextView
         android:id="@+id/textview_signup"
@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@id/textview_signup" />
 
     <EditText
-        android:id="@+id/edittext_name"
+        android:id="@+id/edittext_signup_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
@@ -56,7 +56,7 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edittext_name" />
+        app:layout_constraintTop_toBottomOf="@id/edittext_signup_name" />
 
     <EditText
         android:id="@+id/edittext_signup_id"

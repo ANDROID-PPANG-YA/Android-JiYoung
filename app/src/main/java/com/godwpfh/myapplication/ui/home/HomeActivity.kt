@@ -1,4 +1,4 @@
-package com.godwpfh.myapplication.home
+package com.godwpfh.myapplication.ui.home
 
 import android.content.ContentValues.TAG
 import android.os.Bundle
@@ -6,13 +6,15 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.godwpfh.myapplication.R
+import com.godwpfh.myapplication.adapter.ProfileViewPagerAdpater
 import com.godwpfh.myapplication.databinding.ActivityHomeBinding
-import com.godwpfh.myapplication.home.adapter.ProfileViewPagerAdpater
 
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding : ActivityHomeBinding
     private lateinit var homeViewPagerAdpater: ProfileViewPagerAdpater
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

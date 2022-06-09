@@ -1,4 +1,4 @@
-package com.godwpfh.myapplication.home.data
+package com.godwpfh.myapplication.data
 
 data class FollowData(
     val follow_image : Int,

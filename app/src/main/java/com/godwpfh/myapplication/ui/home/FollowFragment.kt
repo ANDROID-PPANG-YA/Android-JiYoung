@@ -1,4 +1,4 @@
-package com.godwpfh.myapplication.home
+package com.godwpfh.myapplication.ui.home
 
 import android.content.ContentValues.TAG
 import android.os.Bundle
@@ -9,8 +9,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.godwpfh.myapplication.R
 import com.godwpfh.myapplication.databinding.FragmentFollowBinding
-import com.godwpfh.myapplication.home.adapter.FollowAdapter
-import com.godwpfh.myapplication.home.data.FollowData
+import com.godwpfh.myapplication.adapter.FollowAdapter
+import com.godwpfh.myapplication.data.FollowData
 
 class FollowFragment : Fragment() {
     private var  _binding : FragmentFollowBinding ?= null

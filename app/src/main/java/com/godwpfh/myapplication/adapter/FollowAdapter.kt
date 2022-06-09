@@ -1,10 +1,10 @@
-package com.godwpfh.myapplication.home.adapter
+package com.godwpfh.myapplication.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.godwpfh.myapplication.databinding.ItemFollowListBinding
-import com.godwpfh.myapplication.home.data.FollowData
+import com.godwpfh.myapplication.data.FollowData
 
 class FollowAdapter : RecyclerView.Adapter<FollowAdapter.FollowViewHolder>() {
     val followUserList = mutableListOf<FollowData>()

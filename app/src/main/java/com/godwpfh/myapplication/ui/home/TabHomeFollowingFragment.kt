@@ -1,12 +1,10 @@
-package com.godwpfh.myapplication.home
+package com.godwpfh.myapplication.ui.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.godwpfh.myapplication.R
-import com.godwpfh.myapplication.databinding.FragmentTabHomeFollowerBinding
 import com.godwpfh.myapplication.databinding.FragmentTabHomeFollowingBinding
 
 class TabHomeFollowingFragment : Fragment() {
