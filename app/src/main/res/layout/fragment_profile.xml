@@ -9,6 +9,7 @@
     tools:context=".ui.home.profile.ProfileFragment">
 
 
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageview_profile"
         android:layout_width="100dp"

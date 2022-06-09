@@ -1,8 +1,10 @@
 package com.godwpfh.myapplication.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.godwpfh.myapplication.databinding.ItemFollowListBinding
 import com.godwpfh.myapplication.data.FollowData
 
@@ -24,9 +26,11 @@ class FollowAdapter : RecyclerView.Adapter<FollowAdapter.FollowViewHolder>() {
         private val binding : ItemFollowListBinding
     ) : RecyclerView.ViewHolder(binding.root){
         fun onBind(data : FollowData){
-            binding.imageviewFollowUser.setImageResource(data.follow_image)
+            Glide.with(binding.root)
+                .load(data.follow_image)
+                .into(binding.imageviewFollowUser)
             binding.textviewFollowName.text=data.follow_name
-            binding.textviewFollowDes.text=data.follow_des
+
         }
 
     }

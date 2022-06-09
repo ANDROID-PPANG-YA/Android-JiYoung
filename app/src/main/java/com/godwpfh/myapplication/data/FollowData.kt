@@ -1,7 +1,6 @@
 package com.godwpfh.myapplication.data
 
 data class FollowData(
-    val follow_image : Int,
-    val follow_name : String,
-    val follow_des : String
+    val follow_image : String,
+    val follow_name : String
 )

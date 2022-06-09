@@ -3,7 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/drawable/button_custom_state.xml" value="0.1335" />
+        <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/activity_home.xml" value="0.18888888888888888" />
+        <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/activity_sign_up.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/activity_start.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/fragment_1.xml" value="0.28020833333333334" />
+        <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/fragment_2.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/fragment_3.xml" value="0.109375" />
+        <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/fragment_camera.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/fragment_follow.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/fragment_profile.xml" value="0.1171875" />
+        <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/fragment_repos.xml" value="0.24947916666666667" />
       </map>
     </option>
   </component>

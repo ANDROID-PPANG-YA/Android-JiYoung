@@ -1,5 +1,6 @@
 package com.godwpfh.myapplication.data.remote
 
+import com.godwpfh.myapplication.data.remote.response.ResponseFollow
 import com.godwpfh.myapplication.data.remote.response.ResponseGetUser
 import com.godwpfh.myapplication.data.remote.response.ResponseRepos
 import retrofit2.Call
@@ -13,6 +14,7 @@ interface GithubService {
     @GET("users/{username}/repos")
     fun getRepos(@Path("username")username: String): Call<List<ResponseRepos>>
 
-//    @GET("users/wlwpfh/following")
+    @GET("users/{username}/following")
+    fun getFollowings(@Path("username") username:String) : Call<List<ResponseFollow>>
 
 }
