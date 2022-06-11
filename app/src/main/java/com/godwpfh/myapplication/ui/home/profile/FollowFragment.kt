@@ -49,9 +49,10 @@ class FollowFragment : Fragment() {
             ) {
                 if(response.isSuccessful){
                     val followList=response.body()
-                    followList!!.forEachIndexed { index, _ ->
-                        followData.add(FollowData(followList[index].image, followList[index].name))
-                    }
+                    Log.d(TAG,"FollowFragment - onResponse() called followList=$followList")
+//                    followList!!.forEachIndexed { index, _ ->
+//                        followData.add(FollowData(followList[index].image, followList[index].name))
+//                    }
                     initFollowAdapter()
                 }else{
 

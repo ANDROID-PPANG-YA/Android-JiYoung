@@ -74,6 +74,7 @@ class SignInActivity : AppCompatActivity() {
                         "${name}님 반갑습니다.",
                         Toast.LENGTH_SHORT
                     ).show()
+        startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
     }
 
     private fun loginNetwork() {
@@ -91,38 +92,7 @@ class SignInActivity : AppCompatActivity() {
                 showToast("로그인에 실패")
             }
         )
-//        call.enqueue(object : Callback<ResponseSignIn> {
-//            override fun onResponse(
-//                call: Call<ResponseSignIn>,
-//                response: Response<ResponseSignIn>
-//            ) {
-//                if (response.isSuccessful) {
-//                    val data = response.body()?.data
-//
-//                    Toast.makeText(
-//                        this@SignInActivity,
-//                        "${data?.email}님 반갑습니다.",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//                    val intent = Intent(this@SignInActivity, HomeActivity::class.java)
-//                    intent.putExtra("username", data!!.email)
-//                    Log.d(TAG, "SignInActivity - onResponse() called username: ${data!!.email}")
-//                    startActivity(intent)
-//
-//                } else if (response.code() == 404) {
-//                    Toast.makeText(this@SignInActivity, "존재하지 않는 이메일입니다.", Toast.LENGTH_SHORT)
-//                        .show()
-//                } else if (response.code() == 409) {
-//                    Toast.makeText(this@SignInActivity, "잘못돤 비밀번호입니다.", Toast.LENGTH_SHORT).show()
-//                } else
-//                    Toast.makeText(this@SignInActivity, "로그인에 실패하였습니다.", Toast.LENGTH_SHORT).show()
-//            }
-//
-//            override fun onFailure(call: Call<ResponseSignIn>, t: Throwable) {
-//                Log.d("NetworkTest", "SignInActivity - onFailure() called, error:$t ")
-//            }
-//
-//        })
+
 
     }
 }
