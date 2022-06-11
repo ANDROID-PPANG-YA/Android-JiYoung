@@ -2,6 +2,7 @@ package com.godwpfh.myapplication.ui.home.profile
 
 import android.content.ContentValues.TAG
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ import com.godwpfh.myapplication.data.remote.response.ResponseGetUser
 import com.godwpfh.myapplication.data.remote.response.ResponseRepos
 import com.godwpfh.myapplication.databinding.FragmentProfileBinding
 import com.godwpfh.myapplication.ui.home.HomeActivity
+import com.godwpfh.myapplication.ui.setting.SettingActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,6 +39,7 @@ class ProfileFragment : Fragment() {
 
         initProfile()
         initTransaction()
+        initSetting()
 
         return binding.root
     }
@@ -98,5 +101,12 @@ class ProfileFragment : Fragment() {
             }
         })
         }
+
+    private fun initSetting(){
+        binding.imageviewSetting.setOnClickListener{
+            val intent=Intent(context, SettingActivity::class.java)
+            startActivity(intent)
+        }
+    }
     }
 

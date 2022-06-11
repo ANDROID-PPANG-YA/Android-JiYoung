@@ -14,19 +14,21 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.setting.SettingActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.StartActivity"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".ui.home.HomeActivity" />
         <activity
             android:name=".ui.auth.SignInActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity android:name=".ui.auth.SignUpActivity" />
     </application>
 

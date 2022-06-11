@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.godwpfh.myapplication.data.local.GithubSharedPreference
 import com.godwpfh.myapplication.data.remote.ServiceCreator
 import com.godwpfh.myapplication.data.remote.request.RequestSignIn
 import com.godwpfh.myapplication.data.remote.response.ResponseSignIn
@@ -32,6 +33,9 @@ class SignInActivity : AppCompatActivity() {
         logInClicked()
         setInfo()
 
+
+        initAutoLoginEvent()
+        isAutoLogin()
     }
 
     private fun signUpClicked() {
@@ -74,6 +78,12 @@ class SignInActivity : AppCompatActivity() {
                         "${name}님 반갑습니다.",
                         Toast.LENGTH_SHORT
                     ).show()
+
+        if(binding.signinCheckbox.isChecked){
+            GithubSharedPreference.setAutoLogin(this, binding.signinCheckbox.isChecked)
+            Log.d(TAG,"SignInActivity - successSignIn() called isChecked:${binding.signinCheckbox.isChecked}")
+        }
+
         startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
     }
 
@@ -94,5 +104,18 @@ class SignInActivity : AppCompatActivity() {
         )
 
 
+    }
+
+    private fun initAutoLoginEvent(){
+        GithubSharedPreference.init(this)
+    }
+
+    private fun isAutoLogin(){
+        if(GithubSharedPreference.getAutoLogin(this)){
+            Toast.makeText(this, "자동로그인 되었습니다.", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, HomeActivity::class.java))
+            finish()
+
+        }
     }
 }

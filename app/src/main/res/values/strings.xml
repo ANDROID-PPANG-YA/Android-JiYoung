@@ -35,5 +35,7 @@
     <string name="welcomemessage_3">Github를 시작해봅시다!</string>
     <string name="tonext">다음으로</string>
     <string name="tostart">시작하기</string>
-
+    <string name="autologin">자동 로그인</string>
+    <string name="notautologin">자동 로그인 해제</string>
+    <string name="setting">환경설정</string>
 </resources>
