@@ -92,6 +92,8 @@ class ProfileFragment : Fragment() {
                         .load(data?.avatar_url)
                         .into(binding.imageviewProfile)
             }else{
+                Log.d(TAG,"ProfileFragment - onResponse() called response=${response.code()}")
+                    Log.d(TAG,"ProfileFragment - onResponse() called msg=${response.message()}")
                     Log.d(TAG,"ProfileFragment - onResponse(), reponse not successful")
                 }
             }

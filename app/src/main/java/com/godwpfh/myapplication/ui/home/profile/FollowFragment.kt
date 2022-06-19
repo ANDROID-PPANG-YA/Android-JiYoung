@@ -7,24 +7,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
-import com.godwpfh.myapplication.R
-import com.godwpfh.myapplication.databinding.FragmentFollowBinding
 import com.godwpfh.myapplication.adapter.FollowAdapter
 import com.godwpfh.myapplication.data.FollowData
-import com.godwpfh.myapplication.data.ReposData
 import com.godwpfh.myapplication.data.remote.GithubClient
 import com.godwpfh.myapplication.data.remote.response.ResponseFollow
-import com.godwpfh.myapplication.data.remote.response.ResponseGetUser
+import com.godwpfh.myapplication.databinding.FragmentFollowBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class FollowFragment : Fragment() {
-    private var  _binding : FragmentFollowBinding ?= null
+    private var _binding: FragmentFollowBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var  followAdatper: FollowAdapter
+    private lateinit var followAdatper: FollowAdapter
     private val followData = mutableListOf<FollowData>()
 
     override fun onCreateView(
@@ -32,46 +28,50 @@ class FollowFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding= FragmentFollowBinding.inflate(layoutInflater, container, false)
-        Log.d(TAG,"FollowFragment - onCreateView() called")
+        _binding = FragmentFollowBinding.inflate(layoutInflater, container, false)
+        Log.d(TAG, "FollowFragment - onCreateView() called")
 
         initFollowings()
 
         return binding.root
     }
 
-    private fun initFollowings(){
-        val call : Call<List<ResponseFollow>> = GithubClient.githubService.getFollowings("wlwpfh")
+    private fun initFollowings() {
+        val call: Call<List<ResponseFollow>> = GithubClient.githubService.getFollowings("wlwpfh")
         call.enqueue(object : Callback<List<ResponseFollow>> {
             override fun onResponse(
                 call: Call<List<ResponseFollow>>,
                 response: Response<List<ResponseFollow>>
             ) {
-                if(response.isSuccessful){
-                    val followList=response.body()
-                    Log.d(TAG,"FollowFragment - onResponse() called followList=$followList")
-//                    followList!!.forEachIndexed { index, _ ->
-//                        followData.add(FollowData(followList[index].image, followList[index].name))
-//                    }
+                if (response.isSuccessful) {
+                    val followList = response.body()
+                    followList!!.forEachIndexed { index, _ ->
+                        followData.add(
+                            FollowData(
+                                follow_image = followList[index].image,
+                                follow_name = followList[index].name
+                            )
+                        )
+                    }
                     initFollowAdapter()
-                }else{
-
+                } else {
+                    Log.d(TAG, "FollowFragment - onResponse() called, Response is not successful")
                 }
             }
 
             override fun onFailure(call: Call<List<ResponseFollow>>, t: Throwable) {
-                Log.d(TAG,"FollowFragment - onFailure() called t:$t")
+                Log.d(TAG, "FollowFragment - onFailure() called t:$t")
             }
 
 
         })
     }
 
-     private fun initFollowAdapter(){
+    private fun initFollowAdapter() {
 
         followAdatper = FollowAdapter()
 
-        binding.fragmentFollowRecylcerview.adapter=followAdatper
+        binding.fragmentFollowRecylcerview.adapter = followAdatper
 
         followAdatper.followUserList.addAll(followData)
         followAdatper.notifyDataSetChanged()
@@ -79,7 +79,7 @@ class FollowFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding= null
-        Log.d(TAG,"FollowFragment - onDestroyView() called")
+        _binding = null
+        Log.d(TAG, "FollowFragment - onDestroyView() called")
     }
 }

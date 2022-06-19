@@ -5,7 +5,7 @@ plugins {
 
 android {
     compileSdkVersion 31
-    buildToolsVersion "30.0.1"
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.godwpfh.myapplication"
@@ -61,6 +61,8 @@ dependencies {
     implementation 'androidx.activity:activity-ktx:1.4.0'
     implementation "androidx.fragment:fragment-ktx:1.4.1"
     implementation'androidx.navigation:navigation-fragment-ktx:2.4.2'
-    'androidx.navigation:navigation-ui-ktx:2.4.2'
+
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
 
 }
