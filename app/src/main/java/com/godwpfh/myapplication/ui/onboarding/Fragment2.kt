@@ -1,4 +1,4 @@
-package com.godwpfh.myapplication.ui.home
+package com.godwpfh.myapplication.ui.onboarding
 
 import android.os.Bundle
 import android.view.LayoutInflater

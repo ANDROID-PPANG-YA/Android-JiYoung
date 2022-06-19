@@ -17,7 +17,7 @@
             android:name=".ui.setting.SettingActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.StartActivity"
+            android:name=".ui.onboarding.StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,7 @@
         <activity android:name=".ui.home.HomeActivity" />
         <activity
             android:name=".ui.auth.SignInActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity android:name=".ui.auth.SignUpActivity" />
     </application>
 

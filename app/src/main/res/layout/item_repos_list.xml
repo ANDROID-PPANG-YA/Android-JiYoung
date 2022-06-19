@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="10dp"
-    android:padding="10dp">
+    android:layout_margin="10dp"
+    android:background="@drawable/recyclerview_custom">
 
     <TextView
         android:id="@+id/textview_repos_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="10dp"
         android:fontFamily="@font/noto_sans_regular"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+
         android:ellipsize="end"
         android:fontFamily="@font/noto_sans_regular"
         android:singleLine="true"

@@ -1,4 +1,4 @@
-package com.godwpfh.myapplication.ui
+package com.godwpfh.myapplication.ui.onboarding
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

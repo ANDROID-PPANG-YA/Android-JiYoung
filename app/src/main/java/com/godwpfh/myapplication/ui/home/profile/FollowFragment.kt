@@ -1,6 +1,7 @@
 package com.godwpfh.myapplication.ui.home.profile
 
 import android.content.ContentValues.TAG
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import com.godwpfh.myapplication.data.FollowData
 import com.godwpfh.myapplication.data.remote.GithubClient
 import com.godwpfh.myapplication.data.remote.response.ResponseFollow
 import com.godwpfh.myapplication.databinding.FragmentFollowBinding
+import com.godwpfh.myapplication.util.CustomRecyclerDecoration
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -32,7 +34,7 @@ class FollowFragment : Fragment() {
         Log.d(TAG, "FollowFragment - onCreateView() called")
 
         initFollowings()
-
+        initRecylcerDeco()
         return binding.root
     }
 
@@ -75,6 +77,11 @@ class FollowFragment : Fragment() {
 
         followAdatper.followUserList.addAll(followData)
         followAdatper.notifyDataSetChanged()
+    }
+
+    private fun initRecylcerDeco() {
+        val customRecyclerDecoration = CustomRecyclerDecoration(10f, 10f, Color.WHITE)
+        binding.fragmentFollowRecylcerview.addItemDecoration(customRecyclerDecoration)
     }
 
     override fun onDestroyView() {

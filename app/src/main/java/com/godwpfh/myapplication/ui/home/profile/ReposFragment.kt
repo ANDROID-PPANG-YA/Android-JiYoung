@@ -1,19 +1,19 @@
 package com.godwpfh.myapplication.ui.home.profile
 
 import android.content.ContentValues.TAG
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
 import com.godwpfh.myapplication.adapter.ReposAdapter
 import com.godwpfh.myapplication.data.ReposData
 import com.godwpfh.myapplication.data.remote.GithubClient
-import com.godwpfh.myapplication.data.remote.response.ResponseGetUser
 import com.godwpfh.myapplication.data.remote.response.ResponseRepos
 import com.godwpfh.myapplication.databinding.FragmentReposBinding
+import com.godwpfh.myapplication.util.CustomRecyclerDecoration
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,15 +36,15 @@ class ReposFragment : Fragment() {
 
 
         initRepos()
-
+        initRecylcerDeco()
 
         return binding.root
 
     }
 
-    private fun initRepos(){
-        Log.d(TAG,"ReposFragment - initRepos() called")
-        val call : Call<List<ResponseRepos>> = GithubClient.githubService.getRepos("wlwpfh")
+    private fun initRepos() {
+        Log.d(TAG, "ReposFragment - initRepos() called")
+        val call: Call<List<ResponseRepos>> = GithubClient.githubService.getRepos("wlwpfh")
         call.enqueue(object : Callback<List<ResponseRepos>> {
             override fun onResponse(
                 call: Call<List<ResponseRepos>>,
@@ -52,20 +52,21 @@ class ReposFragment : Fragment() {
             ) {
                 if (response.isSuccessful) {
                     val list = response.body()
-                    Log.d(TAG,"ReposFragment - onResponse() called list : $list")
+                    Log.d(TAG, "ReposFragment - onResponse() called list : $list")
                     list!!.forEachIndexed { index, _ ->
                         reposData.add(ReposData(list[index].name, list[index].description))
                     }
                     initReposAdapter()
                 }
             }
-                override fun onFailure(call: Call<List<ResponseRepos>>, t: Throwable) {
-                    Log.d(TAG, "ReposFragment - onFailure() called t=$t")
-                }
 
-            })
+            override fun onFailure(call: Call<List<ResponseRepos>>, t: Throwable) {
+                Log.d(TAG, "ReposFragment - onFailure() called t=$t")
+            }
 
-        }
+        })
+
+    }
 
     private fun initReposAdapter() {
         //recyclerview에 adapter연결
@@ -76,6 +77,11 @@ class ReposFragment : Fragment() {
         reposAdapter.reposList.addAll(reposData)
 
         reposAdapter.submitList(reposData)
+    }
+
+    private fun initRecylcerDeco() {
+        val customRecyclerDecoration = CustomRecyclerDecoration(10f, 10f, Color.WHITE)
+        binding.fragmentReposRecyclerview.addItemDecoration(customRecyclerDecoration)
     }
 
 

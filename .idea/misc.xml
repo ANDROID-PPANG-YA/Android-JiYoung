@@ -4,13 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/drawable/button_custom_state.xml" value="0.1335" />
+        <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/drawable/button_rounded.xml" value="0.1515" />
+        <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/drawable/button_rounded_focus.xml" value="0.1515" />
         <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/drawable/checkbox_off.xml" value="0.1125" />
         <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/drawable/checkbox_on.xml" value="0.1125" />
         <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/drawable/ic_arrow.xml" value="0.1135" />
         <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/drawable/ic_profile.xml" value="0.1245" />
         <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/drawable/ic_setting.xml" value="0.1135" />
+        <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/drawable/recyclerview_custom.xml" value="0.1515" />
         <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/drawable/selector_signin_checkbox.xml" value="0.1125" />
+        <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/drawable/shape_rounded.xml" value="0.1515" />
         <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/drawable/shape_rounded_focused.xml" value="0.1245" />
+        <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/activity_base.xml" value="0.23385416666666667" />
         <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/activity_home.xml" value="0.18888888888888888" />
         <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/activity_setting.xml" value="0.264" />
         <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/activity_sign_in.xml" value="0.2" />
@@ -23,6 +28,9 @@
         <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/fragment_follow.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/fragment_profile.xml" value="0.136" />
         <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/fragment_repos.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/fragment_tab_home_follower.xml" value="0.23385416666666667" />
+        <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/item_follow_list.xml" value="0.23385416666666667" />
+        <entry key="..\:/Users/82103/Documents/week1/app/src/main/res/layout/item_repos_list.xml" value="0.23385416666666667" />
       </map>
     </option>
   </component>

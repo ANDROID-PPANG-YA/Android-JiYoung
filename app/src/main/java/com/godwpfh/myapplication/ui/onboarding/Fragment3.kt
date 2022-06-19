@@ -1,4 +1,4 @@
-package com.godwpfh.myapplication.ui.home
+package com.godwpfh.myapplication.ui.onboarding
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,8 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.godwpfh.myapplication.R
 import com.godwpfh.myapplication.databinding.Fragment3Binding
 import com.godwpfh.myapplication.ui.auth.SignInActivity
 
