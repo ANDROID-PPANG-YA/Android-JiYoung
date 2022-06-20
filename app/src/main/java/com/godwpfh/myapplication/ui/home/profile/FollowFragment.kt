@@ -1,12 +1,14 @@
 package com.godwpfh.myapplication.ui.home.profile
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.godwpfh.myapplication.adapter.FollowAdapter
 import com.godwpfh.myapplication.data.FollowData
@@ -15,6 +17,7 @@ import com.godwpfh.myapplication.data.remote.response.ResponseFollow
 import com.godwpfh.myapplication.databinding.FragmentFollowBinding
 import com.godwpfh.myapplication.util.CustomRecyclerDecoration
 import retrofit2.Call
+import com.godwpfh.myapplication.util.showToast
 import retrofit2.Callback
 import retrofit2.Response
 
@@ -77,11 +80,26 @@ class FollowFragment : Fragment() {
 
         followAdatper.followUserList.addAll(followData)
         followAdatper.notifyDataSetChanged()
+        initFollowClick()
     }
 
     private fun initRecylcerDeco() {
         val customRecyclerDecoration = CustomRecyclerDecoration(10f, 10f, Color.WHITE)
         binding.fragmentFollowRecylcerview.addItemDecoration(customRecyclerDecoration)
+    }
+
+    private fun initFollowClick(){
+        followAdatper.setOnItemClickListener(object: FollowAdapter.OnItemClickListener{
+            override fun onFollowItemClick(v: View, data: FollowData, pos: Int) {
+                Intent(context, DetailActivity::class.java).apply{
+
+                    putExtra("follow_data", data)
+                }.run {
+                    startActivity(this)
+                }
+
+            }
+        })
     }
 
     override fun onDestroyView() {
