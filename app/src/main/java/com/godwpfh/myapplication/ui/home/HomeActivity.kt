@@ -8,6 +8,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.godwpfh.myapplication.R
 import com.godwpfh.myapplication.adapter.ProfileViewPagerAdpater
 import com.godwpfh.myapplication.databinding.ActivityHomeBinding
+import com.godwpfh.myapplication.ui.home.profile.ProfileFragment
 
 
 class HomeActivity : AppCompatActivity() {
@@ -15,11 +16,14 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var homeViewPagerAdpater: ProfileViewPagerAdpater
 
 
+    private lateinit var email : String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding= ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         Log.d(TAG,"HomeActivity - onCreate() called")
 
@@ -56,7 +60,6 @@ class HomeActivity : AppCompatActivity() {
             homeViewPagerAdpater.setFragments(fragmentList)
             binding.viewPagerHome.adapter=homeViewPagerAdpater
     }
-
 
 
     companion object{

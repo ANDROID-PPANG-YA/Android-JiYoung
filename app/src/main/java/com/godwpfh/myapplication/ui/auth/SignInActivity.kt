@@ -1,5 +1,6 @@
 package com.godwpfh.myapplication.ui.auth
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -7,11 +8,14 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.godwpfh.myapplication.data.local.GithubSharedPreference
+import com.godwpfh.myapplication.data.remote.ServiceCreator
 import com.godwpfh.myapplication.data.remote.request.RequestSignIn
 import com.godwpfh.myapplication.data.remote.response.ResponseSignIn
-import com.godwpfh.myapplication.data.remote.ServiceCreator
 import com.godwpfh.myapplication.databinding.ActivitySignInBinding
 import com.godwpfh.myapplication.ui.home.HomeActivity
+import com.godwpfh.myapplication.util.enqueueUtil
+import com.godwpfh.myapplication.util.showToast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,6 +33,9 @@ class SignInActivity : AppCompatActivity() {
         logInClicked()
         setInfo()
 
+
+        initAutoLoginEvent()
+        isAutoLogin()
     }
 
     private fun signUpClicked() {
@@ -65,41 +72,50 @@ class SignInActivity : AppCompatActivity() {
             }
     }
 
+    private fun successSignIn(name: String){
+        Toast.makeText(
+                        this@SignInActivity,
+                        "${name}님 반갑습니다.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+        if(binding.signinCheckbox.isChecked){
+            GithubSharedPreference.setAutoLogin(this, binding.signinCheckbox.isChecked)
+            Log.d(TAG,"SignInActivity - successSignIn() called isChecked:${binding.signinCheckbox.isChecked}")
+        }
+
+        startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
+    }
+
     private fun loginNetwork() {
         val requestSignIn = RequestSignIn(
             email = binding.edittextId.text.toString(),
             password = binding.edittextPw.text.toString()
         )
 
-        val call: Call<ResponseSignIn> = ServiceCreator.soptService.postSignin(requestSignIn)
-        call.enqueue(object : Callback<ResponseSignIn> {
-            override fun onResponse(
-                call: Call<ResponseSignIn>,
-                response: Response<ResponseSignIn>
-            ) {
-                if(response.isSuccessful) {
-                    val data = response.body()?.data
-
-                    Toast.makeText(
-                        this@SignInActivity,
-                        "${data?.email}님 반갑습니다.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
-
-                }else if(response.code()==404){
-                    Toast.makeText(this@SignInActivity, "존재하지 않는 이메일입니다.",Toast.LENGTH_SHORT).show()
-                }else if(response.code()==409){
-                    Toast.makeText(this@SignInActivity, "잘못돤 비밀번호입니다.", Toast.LENGTH_SHORT).show()
-                }
-                else
-                    Toast.makeText(this@SignInActivity, "로그인에 실패하였습니다.", Toast.LENGTH_SHORT).show()
+        val call = ServiceCreator.soptService.postSignin(requestSignIn)
+        call.enqueueUtil(
+            onSuccess = {
+                successSignIn(it.data.name)
+            },
+            onError={
+                showToast("로그인에 실패")
             }
+        )
 
-            override fun onFailure(call: Call<ResponseSignIn>, t: Throwable) {
-                Log.d("NetworkTest", "SignInActivity - onFailure() called, error:$t ")
-            }
 
-        })
+    }
+
+    private fun initAutoLoginEvent(){
+        GithubSharedPreference.init(this)
+    }
+
+    private fun isAutoLogin(){
+        if(GithubSharedPreference.getAutoLogin(this)){
+            Toast.makeText(this, "자동로그인 되었습니다.", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, HomeActivity::class.java))
+            finish()
+
+        }
     }
 }

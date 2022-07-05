@@ -6,15 +6,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.ProfileFragment">
+    tools:context=".ui.home.profile.ProfileFragment">
 
+    <ImageView
+        android:id="@+id/imageview_setting"
+        android:layout_width="20dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:src="@drawable/ic_setting"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageview_profile"
         android:layout_width="100dp"
         android:layout_height="0dp"
         android:layout_marginTop="30dp"
-        android:src="@drawable/home_image"
+        tools:src=""
         app:civ_border_color="@color/sopt_main_purple"
         app:civ_border_width="1dp"
         app:layout_constraintDimensionRatio="1:1"
@@ -24,20 +34,30 @@
 
 
     <TextView
-        android:id="@+id/textview_profile_user_name"
+        android:id="@+id/textview_profile_user_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/noto_sans_regular"
-        android:text="양지영"
+        tools:text=""
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageview_profile" />
 
-
+    <TextView
+        android:id="@+id/textview_profile_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/noto_sans_regular"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_profile_user_id"
+        tools:text="" />
     <Button
         android:id="@+id/home_follow_btn"
         android:layout_width="0dp"
