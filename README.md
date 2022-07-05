@@ -1,4 +1,76 @@
 
+## 세미나 7 과제  
+
+### 1. 구현한 코드 및 설명  
+#### 1-1) GithubSharedPreference
+```kotlin
+    fun init(context: Context) {
+        preferences = context.getSharedPreferences(STORAGE_KEY, Context.MODE_PRIVATE)
+    }
+
+    fun getAutoLogin(context: Context): Boolean {
+        return preferences.getBoolean(AUTO_LOGIN, false)
+    }
+
+    fun setAutoLogin(context:Context, value: Boolean) {
+        preferences.edit()
+            .putBoolean(AUTO_LOGIN, value)
+            .apply()
+    }
+
+    fun finishAutoLogin(context: Context) {
+        preferences = context.getSharedPreferences(STORAGE_KEY, Context.MODE_PRIVATE)
+        preferences.edit()
+            .remove(AUTO_LOGIN)
+            .clear().apply()
+    }
+```
+sharedpreference를 사용하여 자동 로그인 구현, 자동로그인 해제를 구현했습니다.  
+기본으로 getAutoLogin()에서 default값을 false를 설정하여 자동로그인이 안되어있도록 설정하였습니다.  
+finishAutoLogin()에서는 해제한 코드로 AUTO_LOGIN를 삭제하도록 설정했습니다.  
+
+#### 1-2) SignInActivity
+```kotlin
+ if(binding.signinCheckbox.isChecked){
+            GithubSharedPreference.setAutoLogin(this, binding.signinCheckbox.isChecked)
+            Log.d(TAG,"SignInActivity - successSignIn() called isChecked:${binding.signinCheckbox.isChecked}")
+        }
+```
+successSignIn()함수 안에 넣었으며 자동로그인 체크 여부에 따라 setAutoLogin을 설정하였습니다.
+
+#### 1-3) SettingActivity
+```kotlin
+  private fun initAutoLoginClicked() {
+        binding.textviewLoginSetting.setOnClickListener {
+            GithubSharedPreference.finishAutoLogin(this)
+        }
+
+    }
+```
+해당 버튼을 클릭하면 finishAutoLogin을 호출하게 했습니다.
+
+#### 1-4) Fragment1, Fragment2, Fragment3
+```kotlin
+binding.buttonFragment1.setOnClickListener {
+            findNavController().navigate(R.id.action_fragment1_to_fragment2)
+        }
+```
+온보딩 화면으로 StartActivty 안에 있는 fragment입니다. 
+다른 fragment로 이동할 때 findNavController.navigate를 이용하여 이동하였습니다.
+
+### 2) 배운 점
+- NavigationComponent를 이용하여 fragment 사이에서 이동하는 방법을 배웠습니다.
+- 확장함수를 알게 되었고 그에 대한 사용법을 배웠습니다.
+- 영속성 데이터를 통해 저장하는 방법을 배웠습니다.
+
+### 3) 구현 영상
+
+
+https://user-images.githubusercontent.com/58364342/173188955-aaa212ea-c102-4c4e-b684-73bcf6fa52bf.mp4
+
+
+
+
 ## 세미나 4 과제  
 
 ### 1. 구현한 코드 및 설명  
@@ -62,6 +134,14 @@ data class ResponseSignUp(
                     //다음 페이지로 이동
                 }else if(response.code()==409){
                     //중복된 경우
+
+https://user-images.githubusercontent.com/58364342/173188815-63a2c900-ff2d-43a1-ad02-35309b54f04f.mp4
+
+
+
+https://user-images.githubusercontent.com/58364342/173188859-fa29de68-a11d-4ca0-84fb-3f40c43e7b2a.mp4
+
+
                     Toast.makeText(this@SignUpActivity, "이미 존재하는 아이디입니다.", Toast.LENGTH_SHORT).show()
                 }else
 
@@ -89,7 +169,7 @@ response의 code가 정상적이지 않은 경우에 대해서 추가적으로 T
 ![seminar4_gif](https://user-images.githubusercontent.com/58364342/168298029-b295b84c-b4bf-4c49-a446-122523acdc4a.gif)
 ![image](https://user-images.githubusercontent.com/58364342/168298042-cdf9a1c7-dbb7-4fb1-9b26-959988adbdaf.png)
 
-=======
+-----------------------------
 
 
 ## 세미나 3 과제  
